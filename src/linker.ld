@@ -1,24 +1,21 @@
-/* Memory definitions for STM32F103C8T6 */
+/* Memory definitions for STM32F103C8T6 - Application Image */
 MEMORY
 {
-    FLASH (rx)  : ORIGIN = 0x08000000, LENGTH = 64K
+    FLASH (rx)  : ORIGIN = 0x08004000, LENGTH = 48K
     SRAM  (rwx) : ORIGIN = 0x20000000, LENGTH = 20K
 }
 
-/* Stack pointer set to the top of SRAM (grows downward) */
 _estack = ORIGIN(SRAM) + LENGTH(SRAM);
 
 SECTIONS
 {
-    /* Vector table MUST be at the very start of Flash */
     .isr_vector :
     {
         . = ALIGN(4);
         KEEP(*(.isr_vector))
         . = ALIGN(4);
     } > FLASH
-
-    /* Program code and constants */
+    
     .text :
     {
         . = ALIGN(4);
@@ -30,7 +27,6 @@ SECTIONS
         _etext = .;
     } > FLASH
 
-    /* Initialized data loaded into Flash, copied into SRAM at boot */
     _sidata = LOADADDR(.data);
 
     .data :
@@ -43,7 +39,6 @@ SECTIONS
         _edata = .;
     } > SRAM AT > FLASH
 
-    /* Uninitialized variables (zeroed at boot) */
     .bss :
     {
         . = ALIGN(4);
