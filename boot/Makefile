@@ -5,6 +5,7 @@ SIZE       = arm-none-eabi-size
 TARGET     = bootloader
 BUILD_DIR  = build
 SRC_DIR    = .
+INC_DIR    = include
 FLASH_ADDR = 0x08000000
 
 C_SRCS     = $(wildcard $(SRC_DIR)/*.c)
@@ -16,7 +17,7 @@ OBJS       = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(C_SRCS)) \
 
 MCU        = -mcpu=cortex-m3 -mthumb
 
-CFLAGS     = $(MCU) -Wall -Wextra -O0 -g3 -ffreestanding -nostdlib
+CFLAGS     = $(MCU) -Wall -Wextra -O0 -g3 -ffreestanding -nostdlib -I$(INC_DIR)
 LDFLAGS    = $(MCU) -Tlinker.ld -nostdlib -Wl,-Map=$(BUILD_DIR)/$(TARGET).map,--gc-sections
 
 .PHONY: all clean flash size
