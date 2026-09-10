@@ -1,9 +1,10 @@
 #include <stdint.h>
 
+#define CPU_FREQ 8000000
+
 #include "addresses.h"
 #include "delay.h"
 
-#define CPU_FREQ 8000000
 
 void setup(void) {
     RCC_APB2ENR |= (1 << 4);        // set IOPCEN
