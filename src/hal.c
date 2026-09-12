@@ -1,5 +1,4 @@
-#include "common.h"
-
+#include "internal/common.h"
 #include "internal/addresses.h"
 #include "io/gpio.h"
 

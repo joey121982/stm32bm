@@ -5,9 +5,7 @@
 
 #pragma once
 
-#include <stdbool.h>
-#include <stdint.h>
-
+#include "internal/common.h"
 #include "io/gpio.h"
 
 typedef struct {

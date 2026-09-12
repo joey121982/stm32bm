@@ -1,5 +1,4 @@
-#include <stdint.h>
-
+#include "internal/stdint.h"
 #include "internal/delay.h"
 
 /**

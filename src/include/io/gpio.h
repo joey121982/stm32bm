@@ -1,5 +1,7 @@
 #pragma once
 
+#include "internal/stdint.h"
+
 typedef enum {
     GPIOA,
     GPIOB,
